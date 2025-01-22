@@ -1,24 +1,31 @@
 import axios from "axios";
 import { useEffect } from "react";
+import { API_KEY, BASE_URL } from "../constants";
 
 function RateBoard(){
 
     function fetchCurrencies(){
 
-        axios.get("https://api.forexrateapi.com/v1/symbols?api_key=079242e58096f227fbf80cb9971eed4c")
+        axios.get(`${BASE_URL}symbols?api_key=${API_KEY}`)
         .then((response)=>{
-            console.log('Response',response)
+            console.log(' Response',response)
+            
+            if(response.data.success){
+                console.log('Currencies Response',response.data)
+            }
+            else{
+                console.log('Response Error',response.error)
+            }
+            
         })
         .catch( (error)=>{
             console.log('Error',response)
         });
-        
+
     }
 
     useEffect(()=>{
-
-        
-
+        fetchCurrencies();
     },[])
 
     return <>
