@@ -3,7 +3,7 @@ import RateBoard from './components/RateBoard'
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
+      <h1>Rate Board</h1>
       <RateBoard></RateBoard>
     </>
   )
